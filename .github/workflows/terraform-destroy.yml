@@ -41,7 +41,9 @@ jobs:
 
 
       - name: "Terraform Validate"
+        working-directory: ./eks-webapp-lab/terraform
         run: terraform validate
 
       - name: "Terraform Destroy"
+        working-directory: ./eks-webapp-lab/terraform
         run: terraform destroy -auto-approve -input=false -parallelism=1
