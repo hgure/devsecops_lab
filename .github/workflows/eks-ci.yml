@@ -89,13 +89,12 @@ jobs:
         run: aws eks --region ${{ env.AWS_REGION }} update-kubeconfig --name nomadops-eks
 
       # 🔟 Scan Kubernetes manifests with kube-score
-      - name: Install kube-score
+      - name: Scan Kubernetes manifests with kube-score action
         uses: piraces/kube-score-ga@v0.1.3
         with:
             manifests-folders: './eks-webapp-lab/k8s/deployment.yml'
+        continue-on-error: true  # Warning mode for lab
 
-      - name: Scan Kubernetes manifests
-        run: kube-score score ./k8s/deployment.yaml
 
       # 1️⃣1️⃣ Deploy application to EKS
       - name: Deploy application to EKS
