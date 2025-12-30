@@ -63,6 +63,11 @@ jobs:
       - name: Build Docker image
         run: docker build -t ${{ env.DOCKER_IMAGE }} ./eks-webapp-lab/app
 
+      - name: Install Trivy
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh
+          trivy --version
+
       # 7️⃣ Scan Docker image with Trivy (before push)
       - name: Scan Docker image
         run: trivy image ${{ env.DOCKER_IMAGE }}
