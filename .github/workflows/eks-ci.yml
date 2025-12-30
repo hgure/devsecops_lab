@@ -61,7 +61,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{ env.DOCKER_IMAGE }} ./app
+        run: docker build -t ${{ env.DOCKER_IMAGE }} ./eks-webapp-lab/app
 
       # 7️⃣ Scan Docker image with Trivy (before push)
       - name: Scan Docker image
