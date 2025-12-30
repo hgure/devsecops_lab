@@ -36,7 +36,9 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: "Terraform Init"
-        run: terraform init -backend-config="bucket=${{ env.BUCKET_TF_STATE }}" -input=false
+        run: |
+          cd eks-webapp-lab/terraform
+          terraform init -backend-config="bucket=${{ env.BUCKET_TF_STATE }}" -input=false
 
       - name: "Terraform Validate"
         run: terraform validate
