@@ -98,4 +98,4 @@ jobs:
 
       # 1️⃣1️⃣ Deploy application to EKS
       - name: Deploy application to EKS
-        run: kubectl apply -f ./k8s/
+        run: kubectl apply -f ./eks-webapp-lab/k8s/
