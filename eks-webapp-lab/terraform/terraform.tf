@@ -28,7 +28,7 @@ terraform {
 
   backend "s3" {
     bucket = "nomadprofile"
-    key    = "terraform.tfstate"
+    key    = "terraform_new.tfstate"
     region = "us-east-1"
   }
 
