@@ -92,7 +92,7 @@ jobs:
       - name: Install kube-score
         uses: piraces/kube-score-ga@v0.1.3
         with:
-            manifests-folders: './eks-webapp-lab/k8s/deployment.yaml'
+            manifests-folders: './eks-webapp-lab/k8s/deployment.yml'
 
       - name: Scan Kubernetes manifests
         run: kube-score score ./k8s/deployment.yaml
