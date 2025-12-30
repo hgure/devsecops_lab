@@ -90,11 +90,9 @@ jobs:
 
       # 🔟 Scan Kubernetes manifests with kube-score
       - name: Install kube-score
-        run: |
-          curl -LO https://github.com/zegl/kube-score/releases/download/v1.24.0/kube-score_1.24.0_linux_amd64.tar.gz
-          tar -xzf kube-score_1.24.0_linux_amd64.tar.gz
-          sudo mv kube-score /usr/local/bin/
-          kube-score version
+        uses: piraces/kube-score-ga@v0.1.3
+        with:
+            manifests-folders: './eks-webapp-lab/k8s/deployment.yaml'
 
       - name: Scan Kubernetes manifests
         run: kube-score score ./k8s/deployment.yaml
