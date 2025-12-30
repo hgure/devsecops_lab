@@ -39,7 +39,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          terraform init
+          cd eks-webapp-lab/terraform
+          terraform init -reconfigure
           tfsec eks-webapp-lab/terraform || true  # Warning mode for lab
 
       # 5️⃣ Terraform apply (infrastructure only)
