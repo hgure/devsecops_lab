@@ -86,7 +86,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Update kubeconfig
-        run: aws eks --region ${{ env.AWS_REGION }} update-kubeconfig --name webapp-eks
+        run: aws eks --region ${{ env.AWS_REGION }} update-kubeconfig --name nomadops-eks
 
       # 🔟 Scan Kubernetes manifests with kube-score
       - name: Install kube-score
